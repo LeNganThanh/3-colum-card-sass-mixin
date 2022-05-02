@@ -8,6 +8,10 @@ $clr-light-gray: hsl(0, 0%, 95%);
   color: $text;
   background-color: $bg;
 }
+@mixin con-flex {
+  display: $display;
+  flex-direction: $direction;
+}
 body {
   font-size: 15px;
   font-family: "Lexend Deca", sans-serif;
@@ -20,14 +24,12 @@ h2 {
   font-size: 2rem;
 }
 .container {
-  display: flex;
-  flex-direction: column;
+  @include con-flex(flex, column);
   align-items: center;
   margin: 2rem;
 }
 .card {
-  display: flex;
-  flex-direction: column;
+  @include con-flex(flex, column);
   justify-content: space-around;
   padding: 2rem;
   width: 14rem;
@@ -80,7 +82,7 @@ h2 {
 }
 @media screen and (min-width: 576px) /* 375px to small to see */ {
   .container {
-    flex-direction: row;
+    @include con-flex(flex, row);
     justify-content: center;
     vertical-align: top;
   }
