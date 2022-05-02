@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap");
+$clr-sedan: hsl(31, 77%, 52%);
+$clr-suv: hsl(184, 100%, 22%);
+$clr-lux: hsl(179, 100%, 13%);
+$clr-neutral-trans-white: hsla(0, 0%, 100%, 0.75);
+$clr-light-gray: hsl(0, 0%, 95%);
+@mixin card($text, $bg) {
+  color: $text;
+  background-color: $bg;
+}
+body {
+  font-size: 15px;
+  font-family: "Lexend Deca", sans-serif;
+  background-color: $clr-light-gray;
+}
+h2 {
+  text-transform: uppercase;
+  font-family: "Big Shoulders Display", cursive;
+  color: $clr-light-gray;
+  font-size: 2rem;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2rem;
+  width: 14rem;
+  height: 25rem;
+  border-radius: 5px;
+}
+.card img {
+  width: 4rem;
+  margin: 2rem 0 1rem;
+}
+.card button {
+  width: max-content;
+  padding: 0.7rem 1.5rem;
+  margin: 3rem 0;
+  border-radius: 20px;
+  border: 2px solid $clr-light-gray;
+}
+.card button:hover {
+  cursor: pointer;
+}
+.sedan {
+  @include card($clr-neutral-trans-white, $clr-sedan);
+}
+.sedan button {
+  @include card($clr-sedan, $clr-light-gray);
+}
+
+.sedan button:hover {
+  @include card($clr-light-gray, $clr-sedan);
+}
+.suvs button {
+  @include card($clr-suv, $clr-light-gray);
+}
+.suvs {
+  @include card($clr-neutral-trans-white, $clr-suv);
+}
+.suvs button:hover {
+  @include card($clr-light-gray, $clr-suv);
+}
+
+.luxury {
+  @include card($clr-neutral-trans-white, $clr-lux);
+}
+.luxury button {
+  @include card($clr-lux, $clr-light-gray);
+}
+
+.luxury button:hover {
+  @include card($clr-light-gray, $clr-lux);
+}
+@media screen and (min-width: 576px) /* 375px to small to see */ {
+  .container {
+    flex-direction: row;
+    justify-content: center;
+    vertical-align: top;
+  }
+}
